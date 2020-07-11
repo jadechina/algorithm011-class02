@@ -15,7 +15,7 @@ import java.util.Stack;
  * @author tao.shen
  * @version : Solution, v1.0 2020年07月04日 22:10 tao.shen Exp $
  */
-public class Solution {
+public class Solution0201 {
 
     /**
      * 给定一个二叉树，返回它的中序 遍历。
