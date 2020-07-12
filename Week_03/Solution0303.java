@@ -38,6 +38,28 @@ public class Solution0303 {
         }
     }
 
+    /**
+     * 给定一个二叉树, 找到该树中两个指定节点的最近公共祖先。
+     */
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        dfs(root, p, q);
+        return res;
+    }
+
+    TreeNode res = null;
+
+    private boolean dfs(TreeNode root, TreeNode p, TreeNode q) {
+        if (root == null) {
+            return false;
+        }
+        boolean lSon = dfs(root.left, p, q);
+        boolean rSon = dfs(root.right, p, q);
+        if ((lSon && rSon) || ((root.val == p.val || root.val == q.val) && (lSon || rSon))) {
+            res = root;
+        }
+        return lSon || rSon || (root.val == p.val || root.val == q.val);
+    }
+
     public static void main(String[] args) {
         new Solution0303().combine(4, 2);
     }
